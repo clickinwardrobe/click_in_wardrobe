@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const ProfilePage()));
+                        builder: (context) => ProfilePage()));
               },
               child: Text('Go to profile')),
         ],

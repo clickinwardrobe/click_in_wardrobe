@@ -1,3 +1,4 @@
+import 'package:click_in_wardrobe/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,13 +14,19 @@ class HomePage extends StatelessWidget {
         children: [
           Text('A random idea:'),
           Text(appState.current.asLowerCase),
-
           ElevatedButton(
-            onPressed: () {
+              onPressed: () {
                 print(appState.current);
-            },
-            child: Text('Next')
-          ),
+              },
+              child: Text('Next')),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ProfilePage()));
+              },
+              child: Text('Go to profile')),
         ],
       ),
     );

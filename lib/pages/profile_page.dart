@@ -1,5 +1,6 @@
 import 'package:click_in_wardrobe/model/measurement.dart';
 import 'package:click_in_wardrobe/widgets/measurement_widget.dart';
+import 'package:click_in_wardrobe/widgets/unit_toggle_switch.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -17,19 +18,17 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('First route'),
+    return Column(children: [
+      ListView.builder(
+        itemCount: _measurements.length,
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        itemBuilder: (context, index) {
+          return MeasurementWidget(measurement: _measurements.elementAt(index));
+        },
       ),
-      body: Center(
-        child: ListView.builder(
-          itemCount: _measurements.length,
-          scrollDirection: Axis.vertical,
-          itemBuilder: (context, index) {
-            return MeasurementWidget(measurement: _measurements.elementAt(index));
-          },
-        ),
-      ),
-    );
+
+      UnitToggleSwitch()
+    ]);
   }
 }

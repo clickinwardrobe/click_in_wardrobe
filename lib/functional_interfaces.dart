@@ -11,7 +11,3 @@ typedef Consumer<T> = void Function(T);
 /// A function which takes one argument of type T and returns a boolean
 typedef Predicate<T> = bool Function(T);
 
-class FunctionUtils {
-    static T identity<T>(final T value) => value;
-}
-

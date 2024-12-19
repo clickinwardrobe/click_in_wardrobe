@@ -1,20 +1,19 @@
+import 'package:click_in_wardrobe/functional_interfaces.dart';
+import 'package:click_in_wardrobe/math/double_extensions.dart';
+
 enum Unit {
-  centimeters(convertFromCentimeters: _Conversions.centimetresFromCentimeters),
-  millimeters(convertFromCentimeters: _Conversions.millimetresFromCentimeters),
-  inches(convertFromCentimeters: _Conversions.inchesFromCentimeters);
+  centimeters(
+      convertFromMillimeters: UnitConversions.centimetersFromMillimeters),
+  millimeters(convertFromMillimeters: FunctionUtils.identity),
+  inches(convertFromMillimeters: UnitConversions.inchesFromMillimeters);
 
-  const Unit({
-    required this.convertFromCentimeters
-  });
+  const Unit({required this.convertFromMillimeters});
 
-  final Function(double) convertFromCentimeters;
+  final Function(double) convertFromMillimeters;
 }
 
-class _Conversions {
-  static double inchesFromCentimeters(double centimetres) => centimetres / 2.54;
+class UnitConversions {
+  static double inchesFromMillimeters(final double millis) => (millis / 25.4).toDoubleAsFixed(3);
 
-  static double millimetresFromCentimeters(double centimetres) => centimetres * 10;
-
-  static double centimetresFromCentimeters(double centimetres) => centimetres;
+  static double centimetersFromMillimeters(final double millis) => (millis / 10).toDoubleAsFixed(3);
 }
-

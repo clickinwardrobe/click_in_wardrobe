@@ -1,5 +1,4 @@
 import 'package:click_in_wardrobe/model/measurement.dart';
-import 'package:click_in_wardrobe/model/unit.dart';
 import 'package:flutter/material.dart';
 
 class MeasurementWidget extends StatefulWidget {
@@ -21,13 +20,5 @@ class _MeasurementWidgetState extends State<MeasurementWidget> {
         Text(widget.measurement.value.toString()),
       ],
     );
-  }
-
-  void convertTo(final Unit unit) {
-    final double valueAsMillis = widget.measurement.convertTo(unit);
-
-    setState(() {
-        widget.measurement.value = valueAsMillis;
-    });
   }
 }

@@ -14,14 +14,17 @@ class MeasurementList extends StatefulWidget {
 class _MeasurementListState extends State<MeasurementList> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: widget.measurements.length,
-      shrinkWrap: true,
-      scrollDirection: Axis.vertical,
-      itemBuilder: (context, index) {
-        return MeasurementWidget(
-            measurement: widget.measurements.elementAt(index));
-      },
-    );
+    return Column(children: <Widget>[
+      const Text("My Measurements"),
+      ListView.builder(
+        itemCount: widget.measurements.length,
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        itemBuilder: (context, index) {
+          return MeasurementWidget(
+              measurement: widget.measurements.elementAt(index));
+        },
+      )
+    ]);
   }
 }

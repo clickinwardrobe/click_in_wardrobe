@@ -8,6 +8,7 @@ import 'package:flutter/widgets.dart';
 class Measurement extends ChangeNotifier {
   /// The value of the measurement stored as millimetres
   final double valueAsMillis;
+
   /// For displaying the measurement in a UI, for example "Leg Length"
   final String displayName;
 
